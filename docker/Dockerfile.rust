@@ -1,0 +1,9 @@
+FROM rust:1.75-slim
+LABEL org.opencontainers.image.description="Human Lang - Rust Implementation"
+
+WORKDIR /app
+COPY rust/ .
+
+RUN cargo build --release
+
+CMD ["./target/release/rate_limiter"]

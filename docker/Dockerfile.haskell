@@ -1,0 +1,9 @@
+FROM haskell:9.4
+LABEL org.opencontainers.image.description="Human Lang - Haskell Implementation"
+
+WORKDIR /app
+COPY haskell/RateLimiter.hs .
+
+RUN ghc -o rate_limiter RateLimiter.hs
+
+CMD ["./rate_limiter"]

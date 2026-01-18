@@ -1,0 +1,7 @@
+FROM julia:1.10
+LABEL org.opencontainers.image.description="Human Lang - Julia Implementation"
+
+WORKDIR /app
+COPY julia/rate_limiter.jl .
+
+CMD ["julia", "rate_limiter.jl"]

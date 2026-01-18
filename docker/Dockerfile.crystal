@@ -1,0 +1,9 @@
+FROM crystallang/crystal:1.11
+LABEL org.opencontainers.image.description="Human Lang - Crystal Implementation"
+
+WORKDIR /app
+COPY crystal/rate_limiter.cr .
+
+RUN crystal build --release rate_limiter.cr
+
+CMD ["./rate_limiter"]

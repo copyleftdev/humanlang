@@ -1,0 +1,17 @@
+FROM eclipse-temurin:21-jdk
+LABEL org.opencontainers.image.description="Human Lang - Kotlin Implementation"
+
+# Install Kotlin
+RUN apt-get update && apt-get install -y curl unzip && \
+    curl -s https://get.sdkman.io | bash && \
+    bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install kotlin" && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV PATH="/root/.sdkman/candidates/kotlin/current/bin:${PATH}"
+
+WORKDIR /app
+COPY kotlin/RateLimiter.kt .
+
+RUN kotlinc RateLimiter.kt -include-runtime -d RateLimiter.jar
+
+CMD ["java", "-jar", "RateLimiter.jar"]

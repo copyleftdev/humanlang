@@ -1,0 +1,290 @@
+version: "3.8"
+
+# Human Lang - Proof of Concept
+# This Docker Compose setup validates that the same human intent
+# can be transpiled to ANY programming language and execute correctly.
+#
+# Usage:
+#   docker compose up --build        # Run all language implementations
+#   docker compose up python rust    # Run specific languages
+#   docker compose run validator     # Run validation suite
+
+services:
+  # ===========================================
+  # VALIDATOR - Runs all implementations
+  # ===========================================
+  validator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.validator
+    volumes:
+      - ./results:/results
+    depends_on:
+      - python
+      - javascript
+      - typescript
+      - rust
+      - go
+      - haskell
+      - c
+      - ruby
+      - lua
+      - perl
+      - php
+      - bash
+
+  # ===========================================
+  # MAINSTREAM LANGUAGES
+  # ===========================================
+  
+  python:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    container_name: humanlang-python
+
+  javascript:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.javascript
+    container_name: humanlang-javascript
+
+  typescript:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.typescript
+    container_name: humanlang-typescript
+
+  rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.rust
+    container_name: humanlang-rust
+
+  go:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.go
+    container_name: humanlang-go
+
+  haskell:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.haskell
+    container_name: humanlang-haskell
+
+  c:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.c
+    container_name: humanlang-c
+
+  # ===========================================
+  # FUNCTIONAL LANGUAGES
+  # ===========================================
+
+  elixir:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.elixir
+    container_name: humanlang-elixir
+
+  erlang:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.erlang
+    container_name: humanlang-erlang
+
+  clojure:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.clojure
+    container_name: humanlang-clojure
+
+  ocaml:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ocaml
+    container_name: humanlang-ocaml
+
+  fsharp:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.fsharp
+    container_name: humanlang-fsharp
+
+  scala:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.scala
+    container_name: humanlang-scala
+
+  racket:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.racket
+    container_name: humanlang-racket
+
+  # ===========================================
+  # SCRIPTING LANGUAGES
+  # ===========================================
+
+  ruby:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ruby
+    container_name: humanlang-ruby
+
+  lua:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.lua
+    container_name: humanlang-lua
+
+  perl:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.perl
+    container_name: humanlang-perl
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.php
+    container_name: humanlang-php
+
+  bash:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.bash
+    container_name: humanlang-bash
+
+  groovy:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.groovy
+    container_name: humanlang-groovy
+
+  # ===========================================
+  # SYSTEMS LANGUAGES
+  # ===========================================
+
+  zig:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.zig
+    container_name: humanlang-zig
+
+  nim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nim
+    container_name: humanlang-nim
+
+  crystal:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.crystal
+    container_name: humanlang-crystal
+
+  d:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.d
+    container_name: humanlang-d
+
+  # ===========================================
+  # JVM LANGUAGES
+  # ===========================================
+
+  kotlin:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.kotlin
+    container_name: humanlang-kotlin
+
+  # ===========================================
+  # MOBILE/MODERN
+  # ===========================================
+
+  swift:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.swift
+    container_name: humanlang-swift
+
+  dart:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dart
+    container_name: humanlang-dart
+
+  # ===========================================
+  # SCIENTIFIC
+  # ===========================================
+
+  julia:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.julia
+    container_name: humanlang-julia
+
+  r:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.r
+    container_name: humanlang-r
+
+  fortran:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.fortran
+    container_name: humanlang-fortran
+
+  # ===========================================
+  # CLASSIC/HISTORIC
+  # ===========================================
+
+  pascal:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.pascal
+    container_name: humanlang-pascal
+
+  ada:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ada
+    container_name: humanlang-ada
+
+  cobol:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.cobol
+    container_name: humanlang-cobol
+
+  # ===========================================
+  # LOGIC/LISP
+  # ===========================================
+
+  lisp:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.lisp
+    container_name: humanlang-lisp
+
+  prolog:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.prolog
+    container_name: humanlang-prolog
+
+  # ===========================================
+  # ESOTERIC (for fun)
+  # ===========================================
+
+  assembly:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.assembly
+    container_name: humanlang-assembly

@@ -1,0 +1,7 @@
+FROM racket/racket:8.11
+LABEL org.opencontainers.image.description="Human Lang - Racket Implementation"
+
+WORKDIR /app
+COPY racket/rate_limiter.rkt .
+
+CMD ["racket", "rate_limiter.rkt"]

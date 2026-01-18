@@ -1,0 +1,9 @@
+FROM erlang:26-slim
+LABEL org.opencontainers.image.description="Human Lang - Erlang Implementation"
+
+WORKDIR /app
+COPY erlang/rate_limiter.erl .
+
+RUN erlc rate_limiter.erl
+
+CMD ["erl", "-noshell", "-s", "rate_limiter", "demo", "-s", "init", "stop"]

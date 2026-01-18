@@ -1,0 +1,57 @@
+# Build artifacts
+*.o
+*.hi
+*.beam
+*.class
+*.tasty
+*.mod
+*.ali
+*.jar
+*.cmi
+*.cmx
+
+# Compiled binaries (keep source only)
+ada/rate_limiter
+assembly-x86/rate_limiter
+c/rate_limiter
+cobol/rate_limiter
+crystal/rate_limiter
+d/rate_limiter
+fortran/rate_limiter
+go/rate_limiter
+haskell/rate_limiter
+nim/rate_limiter
+ocaml/rate_limiter
+pascal/rate_limiter
+rust/target/
+swift/rate_limiter
+zig/rate_limiter
+
+# Downloaded packages
+d/*.deb
+d/*.deb.*
+zig/*.tar.xz
+zig/*.tar.xz.*
+
+# Logs and dumps
+*.log
+*.dump
+erl_crash.dump
+results/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Rust
+rust/target/
+Cargo.lock
+
+# Kotlin
+kotlin/*.jar

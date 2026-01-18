@@ -1,0 +1,334 @@
+# Human Lang - Language Registry
+# Each language defines how to build and run its implementation
+# This is the single source of truth for the showcase
+
+languages:
+  # ============================================
+  # TIER 1: Fast & Reliable (Interpreted)
+  # ============================================
+  python:
+    name: "Python"
+    year: 1991
+    paradigm: "Multi-paradigm"
+    tagline: "The readable one"
+    image: "python:3.12-slim"
+    file: "python/rate_limiter.py"
+    run: "python rate_limiter.py"
+
+  javascript:
+    name: "JavaScript"
+    year: 1995
+    paradigm: "Multi-paradigm"
+    tagline: "The browser one"
+    image: "node:20-slim"
+    file: "javascript/rate_limiter.js"
+    run: "node rate_limiter.js"
+
+  ruby:
+    name: "Ruby"
+    year: 1995
+    paradigm: "Object-oriented"
+    tagline: "The happy one"
+    image: "ruby:3.3-slim"
+    file: "ruby/rate_limiter.rb"
+    run: "ruby rate_limiter.rb"
+
+  php:
+    name: "PHP"
+    year: 1995
+    paradigm: "Multi-paradigm"
+    tagline: "The web one"
+    image: "php:8.3-cli"
+    file: "php/rate_limiter.php"
+    run: "php rate_limiter.php"
+
+  perl:
+    name: "Perl"
+    year: 1987
+    paradigm: "Multi-paradigm"
+    tagline: "The duct tape"
+    image: "perl:5.38"
+    file: "perl/rate_limiter.pl"
+    run: "perl rate_limiter.pl"
+
+  lua:
+    name: "Lua"
+    year: 1993
+    paradigm: "Scripting"
+    tagline: "The embedded one"
+    image: "alpine:3.19"
+    setup: "apk add --no-cache lua5.4"
+    file: "lua/rate_limiter.lua"
+    run: "lua5.4 rate_limiter.lua"
+
+  # ============================================
+  # TIER 2: Compiled Systems Languages
+  # ============================================
+  go:
+    name: "Go"
+    year: 2009
+    paradigm: "Concurrent"
+    tagline: "The simple one"
+    image: "golang:1.22-alpine"
+    file: "go/rate_limiter.go"
+    build: "go build -o rate_limiter rate_limiter.go"
+    run: "./rate_limiter"
+
+  rust:
+    name: "Rust"
+    year: 2010
+    paradigm: "Systems"
+    tagline: "The safe one"
+    image: "rust:1.75-slim"
+    file: "rust/"
+    build: "cargo build --release"
+    run: "./target/release/rate_limiter"
+
+  c:
+    name: "C"
+    year: 1972
+    paradigm: "Procedural"
+    tagline: "The OG"
+    image: "gcc:13"
+    file: "c/"
+    build: "make"
+    run: "./rate_limiter"
+
+  zig:
+    name: "Zig"
+    year: 2016
+    paradigm: "Systems"
+    tagline: "The better C"
+    image: "alpine:3.19"
+    setup: "apk add --no-cache zig"
+    file: "zig/rate_limiter.zig"
+    build: "zig build-exe rate_limiter.zig -O ReleaseFast"
+    run: "./rate_limiter"
+
+  # ============================================
+  # TIER 3: Functional Languages
+  # ============================================
+  haskell:
+    name: "Haskell"
+    year: 1990
+    paradigm: "Functional"
+    tagline: "The pure one"
+    image: "haskell:9.4"
+    file: "haskell/RateLimiter.hs"
+    build: "ghc -o rate_limiter RateLimiter.hs"
+    run: "./rate_limiter"
+
+  elixir:
+    name: "Elixir"
+    year: 2011
+    paradigm: "Functional"
+    tagline: "The modern Erlang"
+    image: "elixir:1.16-slim"
+    file: "elixir/rate_limiter.exs"
+    run: "elixir rate_limiter.exs"
+
+  erlang:
+    name: "Erlang"
+    year: 1986
+    paradigm: "Functional/Concurrent"
+    tagline: "The telecom one"
+    image: "erlang:26-slim"
+    file: "erlang/rate_limiter.erl"
+    build: "erlc rate_limiter.erl"
+    run: "erl -noshell -s rate_limiter demo -s init stop"
+
+  clojure:
+    name: "Clojure"
+    year: 2007
+    paradigm: "Functional/Lisp"
+    tagline: "The JVM Lisp"
+    image: "clojure:temurin-21-tools-deps"
+    file: "clojure/rate_limiter.clj"
+    run: "clojure -M rate_limiter.clj"
+
+  ocaml:
+    name: "OCaml"
+    year: 1996
+    paradigm: "Functional"
+    tagline: "The ML descendant"
+    image: "ocaml/opam:debian-12-ocaml-5.1"
+    file: "ocaml/rate_limiter.ml"
+    build: "ocamlopt -I +unix unix.cmxa -o rate_limiter rate_limiter.ml"
+    run: "./rate_limiter"
+
+  # ============================================
+  # TIER 4: JVM Languages
+  # ============================================
+  scala:
+    name: "Scala"
+    year: 2004
+    paradigm: "Functional/OO"
+    tagline: "The academic one"
+    image: "sbtscala/scala-sbt:eclipse-temurin-21.0.2_13_1.9.9_3.4.0"
+    file: "scala/RateLimiter.scala"
+    build: "scalac RateLimiter.scala"
+    run: "scala RateLimiter"
+
+  groovy:
+    name: "Groovy"
+    year: 2003
+    paradigm: "Object-oriented"
+    tagline: "The scripting Java"
+    image: "groovy:4.0-jdk21"
+    file: "groovy/RateLimiter.groovy"
+    run: "groovy RateLimiter.groovy"
+
+  # ============================================
+  # TIER 5: Modern Languages
+  # ============================================
+  swift:
+    name: "Swift"
+    year: 2014
+    paradigm: "Multi-paradigm"
+    tagline: "The Apple one"
+    image: "swift:5.9"
+    file: "swift/rate_limiter.swift"
+    build: "swiftc -O -o rate_limiter rate_limiter.swift"
+    run: "./rate_limiter"
+
+  dart:
+    name: "Dart"
+    year: 2011
+    paradigm: "Object-oriented"
+    tagline: "The Flutter one"
+    image: "dart:3.2"
+    file: "dart/rate_limiter.dart"
+    run: "dart run rate_limiter.dart"
+
+  nim:
+    name: "Nim"
+    year: 2008
+    paradigm: "Multi-paradigm"
+    tagline: "The efficient one"
+    image: "nimlang/nim:2.0.2"
+    file: "nim/rate_limiter.nim"
+    build: "nim c -d:release rate_limiter.nim"
+    run: "./rate_limiter"
+
+  crystal:
+    name: "Crystal"
+    year: 2014
+    paradigm: "Object-oriented"
+    tagline: "The fast Ruby"
+    image: "crystallang/crystal:1.11"
+    file: "crystal/rate_limiter.cr"
+    build: "crystal build --release rate_limiter.cr"
+    run: "./rate_limiter"
+
+  # ============================================
+  # TIER 6: Scientific Languages
+  # ============================================
+  julia:
+    name: "Julia"
+    year: 2012
+    paradigm: "Scientific"
+    tagline: "The fast Python"
+    image: "julia:1.10"
+    file: "julia/rate_limiter.jl"
+    run: "julia rate_limiter.jl"
+
+  r:
+    name: "R"
+    year: 1993
+    paradigm: "Statistical"
+    tagline: "The data one"
+    image: "r-base:4.3.2"
+    setup: "R -e \"install.packages('R6', repos='https://cloud.r-project.org/')\""
+    file: "r/rate_limiter.R"
+    run: "Rscript rate_limiter.R"
+
+  fortran:
+    name: "Fortran"
+    year: 1957
+    paradigm: "Procedural"
+    tagline: "The scientific OG"
+    image: "gcc:13"
+    file: "fortran/rate_limiter.f90"
+    build: "gfortran -O2 -o rate_limiter rate_limiter.f90"
+    run: "./rate_limiter"
+
+  # ============================================
+  # TIER 7: Classic/Historic Languages
+  # ============================================
+  pascal:
+    name: "Pascal"
+    year: 1970
+    paradigm: "Procedural"
+    tagline: "The teaching one"
+    image: "debian:bookworm-slim"
+    setup: "apt-get update && apt-get install -y fpc"
+    file: "pascal/rate_limiter.pas"
+    build: "fpc -O2 rate_limiter.pas"
+    run: "./rate_limiter"
+
+  ada:
+    name: "Ada"
+    year: 1980
+    paradigm: "Multi-paradigm"
+    tagline: "The aerospace one"
+    image: "gcc:13"
+    setup: "apt-get update && apt-get install -y gnat"
+    file: "ada/rate_limiter.adb"
+    build: "gnatmake -O2 rate_limiter.adb"
+    run: "./rate_limiter"
+
+  cobol:
+    name: "COBOL"
+    year: 1959
+    paradigm: "Business"
+    tagline: "The banking one"
+    image: "debian:bookworm-slim"
+    setup: "apt-get update && apt-get install -y gnucobol"
+    file: "cobol/RATELIMIT.cbl"
+    build: "cobc -x -free -o rate_limiter RATELIMIT.cbl"
+    run: "./rate_limiter"
+
+  # ============================================
+  # TIER 8: Logic/Lisp Languages
+  # ============================================
+  prolog:
+    name: "Prolog"
+    year: 1972
+    paradigm: "Logic"
+    tagline: "The reasoning one"
+    image: "swipl:9.2"
+    file: "prolog/rate_limiter.pl"
+    run: "swipl -g demo -t halt rate_limiter.pl"
+
+  racket:
+    name: "Racket"
+    year: 1995
+    paradigm: "Functional/Lisp"
+    tagline: "The teaching one"
+    image: "racket/racket:8.11"
+    file: "racket/rate_limiter.rkt"
+    run: "racket rate_limiter.rkt"
+
+  # ============================================
+  # TIER 9: Low-level / Esoteric
+  # ============================================
+  assembly:
+    name: "x86-64 Assembly"
+    year: 1978
+    paradigm: "Low-level"
+    tagline: "The bare metal"
+    image: "debian:bookworm-slim"
+    setup: "apt-get update && apt-get install -y nasm binutils"
+    file: "assembly-x86/rate_limiter.asm"
+    build: "nasm -f elf64 rate_limiter.asm -o rate_limiter.o && ld rate_limiter.o -o rate_limiter"
+    run: "./rate_limiter"
+
+  bash:
+    name: "Bash"
+    year: 1989
+    paradigm: "Scripting"
+    tagline: "The shell one"
+    image: "bash:5"
+    setup: "apk add --no-cache bc coreutils"
+    file: "bash/rate_limiter.sh"
+    run: "bash rate_limiter.sh"

@@ -1,0 +1,9 @@
+FROM gcc:13
+LABEL org.opencontainers.image.description="Human Lang - Fortran Implementation"
+
+WORKDIR /app
+COPY fortran/rate_limiter.f90 .
+
+RUN gfortran -O2 -o rate_limiter rate_limiter.f90
+
+CMD ["./rate_limiter"]

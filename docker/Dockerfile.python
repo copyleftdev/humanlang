@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+LABEL org.opencontainers.image.description="Human Lang - Python Implementation"
+
+WORKDIR /app
+COPY python/rate_limiter.py .
+
+CMD ["python", "rate_limiter.py"]

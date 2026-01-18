@@ -1,0 +1,11 @@
+FROM ocaml/opam:debian-12-ocaml-5.1
+LABEL org.opencontainers.image.description="Human Lang - OCaml Implementation"
+
+WORKDIR /app
+USER root
+COPY ocaml/rate_limiter.ml .
+
+RUN ocamlfind ocamlopt -package unix -linkpkg -o rate_limiter rate_limiter.ml || \
+    ocamlopt -I +unix unix.cmxa -o rate_limiter rate_limiter.ml
+
+CMD ["./rate_limiter"]

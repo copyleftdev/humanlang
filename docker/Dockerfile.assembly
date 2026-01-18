@@ -1,0 +1,14 @@
+FROM debian:bookworm-slim
+LABEL org.opencontainers.image.description="Human Lang - x86-64 Assembly Implementation"
+
+RUN apt-get update && \
+    apt-get install -y nasm binutils && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY assembly-x86/rate_limiter.asm .
+
+RUN nasm -f elf64 rate_limiter.asm -o rate_limiter.o && \
+    ld rate_limiter.o -o rate_limiter
+
+CMD ["./rate_limiter"]

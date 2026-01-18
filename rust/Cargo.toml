@@ -1,0 +1,8 @@
+[package]
+name = "rate_limiter"
+version = "0.1.0"
+edition = "2021"
+description = "Token Bucket Rate Limiter - Transpiled from Human Intent"
+license = "MIT"
+
+[dependencies]

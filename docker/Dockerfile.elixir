@@ -1,0 +1,7 @@
+FROM elixir:1.16-slim
+LABEL org.opencontainers.image.description="Human Lang - Elixir Implementation"
+
+WORKDIR /app
+COPY elixir/rate_limiter.exs .
+
+CMD ["elixir", "rate_limiter.exs"]

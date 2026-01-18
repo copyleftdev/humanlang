@@ -1,0 +1,7 @@
+FROM clojure:temurin-21-tools-deps
+LABEL org.opencontainers.image.description="Human Lang - Clojure Implementation"
+
+WORKDIR /app
+COPY clojure/rate_limiter.clj .
+
+CMD ["clojure", "-M", "rate_limiter.clj"]
